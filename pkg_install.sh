@@ -17,3 +17,4 @@ apt install netcat -y
 apt install cron -y
 apt install unzip -y
 apt install atop -y
+apt install lshw -y
