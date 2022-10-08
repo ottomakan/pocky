@@ -18,3 +18,5 @@ apt install cron -y
 apt install unzip -y
 apt install atop -y
 apt install lshw -y
+apt install cifs-utils -y
+apt install lsof -y
