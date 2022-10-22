@@ -20,3 +20,7 @@ apt install atop -y
 apt install lshw -y
 apt install cifs-utils -y
 apt install lsof -y
+apt install libusb-1.0-0/focal -y
+apt install pkg-config -y
+apt install gnupg -y
+apt install unzstd -y
