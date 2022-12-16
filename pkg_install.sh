@@ -24,3 +24,5 @@ apt install libusb-1.0-0/focal -y
 apt install pkg-config -y
 apt install gnupg -y
 apt install unzstd -y
+apt install tmux -y
+apt install aria2 -y
