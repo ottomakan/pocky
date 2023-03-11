@@ -27,3 +27,4 @@ apt install unzstd -y
 apt install tmux -y
 apt install aria2 -y
 apt install reiserfsprogs -y
+apt install lz4 -y
