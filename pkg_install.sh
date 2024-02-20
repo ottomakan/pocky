@@ -29,5 +29,5 @@ apt install aria2 -y
 apt install reiserfsprogs -y
 apt install lz4 -y
 apt install sysstat -y
+apt install tree -y
 apt-get ca-certificates curl gnupg -y
-
