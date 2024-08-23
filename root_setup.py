@@ -31,18 +31,18 @@ def create_sshusers_group():
         print("Group 'sshusers' created.")
 
 # create groups and users
-def create_accounts(acct, grp=None):
-    grp = grp if grp else acct
+def create_accounts(acct, grp_name=None):
+    grp_name = grp_name if grp_name else acct
     try:
-        grp.getgrnam(acct)
+        grp.getgrnam(grp_name)
     except KeyError:
         print(f"Creating group {grp}")
-        subprocess.run(['addgroup', grp], capture_output=True)
+        subprocess.run(['addgroup', grp_name], capture_output=True)
     try:
         pwd.getpwnam(acct)
     except KeyError:
         print(f"Creating user {acct}")
-        subprocess.run(['adduser', '--ingroup', grp, '--disabled-password', '--gecos', '""', acct])
+        subprocess.run(['adduser', '--ingroup', grp_name, '--disabled-password', '--gecos', '""', acct])
         subprocess.run(['usermod', '-aG', 'sudo', acct])
 
 ## Add ssh keys to evaadmin:authorized_keys
@@ -125,7 +125,7 @@ def pip_install(package):
         pip._internal.main(['install', package])
 
 def set_ufw():
-    bastion_ips = ["<nanny_ip_address>", "<mommy_ip_address>"]  # Replace with the actual IP addresses of nanny.example.com and mommy.example.com
+    bastion_ips = ["65.21.206.81"]      # Replace with the actual IP addresses of nanny.example.com and mommy.example.com
     print('Setting up ufw firewall....')
     ufw_status = ufw.status()
     print(f'Current status: {ufw_status}\n')
@@ -151,8 +151,8 @@ if __name__ == '__main__':
     create_sshusers_group()
 
     print('Creating server accounts...')
-    create_accounts('poktadmin', 'sshusers')
-    add_keys('poktadmin', 'sshusers')
+    create_accounts('poktadmin','sshusers')
+    add_keys('poktadmin')
 
     tweak_sshd()
     tweak_sudoers('poktadmin')
