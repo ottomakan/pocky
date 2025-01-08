@@ -13,8 +13,8 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Update the system
-echo "Updating the system..."
-apt update && apt upgrade -y
+# echo "Updating the system..."
+# apt update && apt upgrade -y
 
 # Download Node Exporter
 echo "Downloading Node Exporter version $NODE_EXPORTER_VERSION..."
