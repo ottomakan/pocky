@@ -151,10 +151,10 @@ if __name__ == '__main__':
     create_sshusers_group()
 
     print('Creating server accounts...')
-    create_accounts('poktadmin','sshusers')
-    add_keys('poktadmin')
+    create_accounts('otto','sshusers')
+    add_keys('otto')
 
     tweak_sshd()
-    tweak_sudoers('poktadmin')
+    tweak_sudoers('otto')
 
     set_ufw()
