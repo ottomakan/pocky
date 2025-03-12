@@ -21,14 +21,14 @@ def pip_install(package):
         pip._internal.main(['install', package])
 
 # create sshusers group
-def create_sshusers_group():
+def create_sshusers_group(gname):
     try:
-        grp.getgrnam('sshusers')
-        print("Group 'sshusers' already exists.")
+        grp.getgrnam(gname)
+        print(f"Group {gname} already exists.")
     except KeyError:
-        print("Creating group 'sshusers'")
-        subprocess.run(['addgroup', 'sshusers'], capture_output=True)
-        print("Group 'sshusers' created.")
+        print(f"Creating group {gname}")
+        subprocess.run(['addgroup', gname], capture_output=True)
+        print(f"Group gname created.")
 
 # create groups and users
 def create_accounts(acct, grp_name=None):
@@ -148,7 +148,8 @@ def set_ufw():
 
 if __name__ == '__main__':
     print('Creating sshusers group...')
-    create_sshusers_group()
+    create_sshusers_group('sshusers')
+    create_sshusers_group('otto')
 
     print('Creating server accounts...')
     create_accounts('otto','sshusers')
