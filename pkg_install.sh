@@ -32,3 +32,4 @@ apt install sysstat -y
 apt install tree -y
 apt-get ca-certificates curl gnupg -y
 apt install net-tools -y
+apt install expect -y
